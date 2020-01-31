@@ -1,0 +1,51 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Meu site Django</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.3/dist/semantic.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.3/dist/semantic.min.js"></script>
+</head>
+<body>
+
+<div class="ui inverted attached menu">
+    <div class="ui container">
+    <a class="item">SITE</a>
+    <a class="right menu">
+            <div class="ui search">
+                <div class="ui icon input">
+                    <input class="prompt" placeholder="Pesquisar..." type="text">
+                    <i class="search icon"></i>
+                </div>
+                <div class="results"></div>
+            </div>
+    </a>
+    </div>
+</div>
+
+<div class="ui hidden divider"></div>
+
+<div class="ui container">
+    <div class="ui stackable grid">
+          <div class="four wide column">
+              <div class="ui vertical fluid menu">
+                  {% for categoria in categorias %}
+            <a class="item">
+                {{ categoria }}
+            </a>
+                  {% endfor %}
+                </div>
+          </div>
+
+          <div class="twelve wide column">
+              {% block conteudo %}
+              {% endblock %}
+          </div>
+
+    </div>
+</div>
+
+</body>
+</html>
